@@ -18,6 +18,7 @@ brews:
 
 nfpms:
   - license: MIT
+    package_name: goreleaser-testing
     maintainer: PatrickMenoti
     homepage: https://github.com/PatrickMenoti/goreleaser-testing
     bindir: /usr/local/bin
