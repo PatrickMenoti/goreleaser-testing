@@ -16,6 +16,15 @@ brews:
     owner: PatrickMenoti
     name: homebrew-tools
 
+nfpms:
+  - license: MIT
+    maintainer: PatrickMenoti
+    homepage: https://github.com/PatrickMenoti/goreleaser-testing
+    bindir: /usr/local/bin
+    formats:
+      - deb
+      - rpm
+
 checksum:
   name_template: 'checksums.txt'
 snapshot:
