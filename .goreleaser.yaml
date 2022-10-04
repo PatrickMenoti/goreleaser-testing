@@ -39,8 +39,8 @@ publishers:
     # with artifacts identified by this id
     ids:
       - packages
-    # dir: "{{ dir .ArtifactPath }}"
-    cmd: curl -F package=goreleaser-testing https://{{ .Env.FURY_TOKEN }}@push.fury.io/netdevops/
+    dir: "{{ dir .ArtifactPath }}"
+    cmd: curl -F package=@{{ .ArtifactName }} https://{{ .Env.FURY_TOKEN }}@push.fury.io/patrickmenoti/
 
 checksum:
   name_template: 'checksums.txt'
