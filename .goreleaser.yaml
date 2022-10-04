@@ -30,14 +30,17 @@ nfpms:
       - deb
       - rpm
 
-publishers:
-  - name: fury.io
-    # by specifying `packages` id here goreleaser will only use this publisher
-    # with artifacts identified by this id
-    ids:
-      - packages
-    dir: "{{ dir .ArtifactPath }}"
-    cmd: curl -F package=@{{ .ArtifactName }} https://{{ .Env.FURY_TOKEN }}@push.fury.io/netdevops/
+furies:
+- account: "{{ .Env.FURY_ACCOUNT }}"
+
+# publishers:
+#   - name: fury.io
+#     # by specifying `packages` id here goreleaser will only use this publisher
+#     # with artifacts identified by this id
+#     ids:
+#       - packages
+#     dir: "{{ dir .ArtifactPath }}"
+#     cmd: curl -F package=@{{ .ArtifactName }} https://{{ .Env.FURY_TOKEN }}@push.fury.io/netdevops/
 
 checksum:
   name_template: 'checksums.txt'
