@@ -27,6 +27,7 @@ jobs:
         env:
           RELEASE_BRANCHES: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FURY_TOKEN: ${{ secrets.FURYPUSHTOKEN }}
           WITH_V: true
 
       - name: Refresh git

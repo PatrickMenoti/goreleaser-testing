@@ -17,7 +17,8 @@ brews:
     name: homebrew-tools
 
 nfpms:
-  - license: MIT
+  - id: packages
+    license: MIT
     package_name: goreleaser-testing
     maintainer: PatrickMenoti
     homepage: https://github.com/PatrickMenoti/goreleaser-testing
@@ -28,6 +29,15 @@ nfpms:
       - apk
       - deb
       - rpm
+
+publishers:
+  - name: fury.io
+    # by specifying `packages` id here goreleaser will only use this publisher
+    # with artifacts identified by this id
+    ids:
+      - packages
+    dir: "{{ dir .ArtifactPath }}"
+    cmd: curl -F package=@{{ .ArtifactName }} https://{{ .Env.FURY_TOKEN }}@push.fury.io/netdevops/
 
 checksum:
   name_template: 'checksums.txt'
