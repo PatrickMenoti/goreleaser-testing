@@ -4,6 +4,6 @@ import "fmt"
 
 func main() {
 
-	fmt.Println("Thank you for using me!")
+	fmt.Println("Thank you for using the second version!!")
 
 }
