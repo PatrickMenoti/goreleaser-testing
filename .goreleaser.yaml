@@ -24,8 +24,6 @@ nfpms:
     maintainer: PatrickMenoti
     homepage: https://github.com/PatrickMenoti/goreleaser-testing
     bindir: /usr/local/bin
-    builds:
-      - goreleaser-testing
     formats:
       - apk
       - deb
