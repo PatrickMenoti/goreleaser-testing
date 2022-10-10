@@ -43,7 +43,7 @@ publishers:
     cmd: curl -F package=@{{ .ArtifactName }} https://{{ .Env.FURY_TOKEN }}@push.fury.io/patrickmenoti/
 
 checksum:
-  name_template: "{{ .ProjectName }}_v{{ .Env.BIN_VERSION }}_checksum"
+  name_template: "{{ .ProjectName }}_v{{ .Env.BIN_VERSION }}_{{ .Env.BIN_VERSION }}"
 snapshot:
   name_template: "{{ incpatch .Version }}-next"
 changelog:
