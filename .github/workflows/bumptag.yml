@@ -32,6 +32,12 @@ jobs:
       - name: Refresh git
         run: git fetch --tags
 
+      - name: set bin_version environment variable 
+        run: echo "BIN_VERSION=$(git describe --tags)" >> $GITHUB_ENV
+      
+      - name: testing step above
+        run: echo "${{ env.BIN_VERSION }}"
+
       - uses: goreleaser/goreleaser-action@v2
         with:
           # either 'goreleaser' (default) or 'goreleaser-pro'
