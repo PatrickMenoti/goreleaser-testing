@@ -34,6 +34,9 @@ jobs:
 
       - name: set bin_version environment variable 
         run: echo "BIN_VERSION=$(git describe --tags)" >> $GITHUB_ENV
+
+      - name: trest
+        run: mkdir dist && touch dist/test.txt
       
       - name: testing step above
         run: echo "${{ env.BIN_VERSION }}"
