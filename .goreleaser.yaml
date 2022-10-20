@@ -17,6 +17,7 @@ archives:
 
 before:
   hooks:
+    - chmod +x ./scripts/completions.sh
     - ./scripts/completions.sh
       
 brews:
