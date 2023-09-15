@@ -5,15 +5,14 @@ builds:
     goos:
       - linux
       - darwin
+    hooks:
+      pre: 
+        - chmod +x ./scripts/vulcandeps.sh
+        - ./scripts/vulcandeps.sh
+
 archives:
-  - replacements:
-      darwin: Darwin
-      linux: Linux
-      amd64: x86_64
-  # - files:
-  #   - README.md
-  #   - LICENSE.md
-  #   - completions/*
+  - files:
+      - completions/*
 
 before:
   hooks:
@@ -56,18 +55,6 @@ nfpms:
       dst: /usr/share/zsh/vendor-completions/_azioncli
       file_info:
         mode: 0644
-
-# furies:
-# - account: "{{ .Env.FURY_ACCOUNT }}"
-
-publishers:
-  - name: fury.io
-    # by specifying `packages` id here goreleaser will only use this publisher
-    # with artifacts identified by this id
-    ids:
-      - packages
-    dir: "{{ dir .ArtifactPath }}"
-    cmd: curl -F package=@{{ .ArtifactName }} https://{{ .Env.FURY_TOKEN }}@push.fury.io/patrickmenoti/
 
 checksum:
   name_template: "{{ .ProjectName }}_v{{ .Env.BIN_VERSION }}_{{ .Env.BIN_VERSION }}"
